@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s1, s2;
+    bool u = 0;
+    int i, j, n, m;
+    cin >> s1 >> s2;
+    n = s1.size();
+    m = s2.size();
+    s1 = "." + s1;
+    s2 = "." + s2;
+    if (n != m)
+        {
+            cout << "NO\n";
+            return 0;
+        }
+    else 
+        {
+            vector <int> v;
+            for (i = 1; i <= m; i++)
+                if (s2[i] == s1[1])
+                    v.push_back(i);
+            for (i = 0; i < v.size(); i++)
+                {
+                    string s;
+                    for (j = v[i]; j <= n; j++)
+                        s += s2[j];
+                    for (j = 1; j < v[i]; j++)
+                        s += s2[j];
+                    s = "." + s;
+                    if (s == s1)
+                        {
+                            u = 1;
+                            break;
+                        }
+                }
+        }
+    if (u)
+        cout << "YES\n";
+    else
+        cout << "NO\n";
+	return 0;
+}
